@@ -23,7 +23,7 @@ namespace CaWorkshop.WebUI.Controllers
 
         // GET: api/TodoLists
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<TodoList>>> GetTodoLists()
+        public async Task<ActionResult<TodosVm>> GetTodoLists()
         {
             return await _mediator.Send(new GetTodoListsQuery());
         }
@@ -41,10 +41,7 @@ namespace CaWorkshop.WebUI.Controllers
         public async Task<IActionResult> PutTodoList(int id,
             UpdateTodoListCommand command)
         {
-            if (id != command.Id)
-            {
-                return BadRequest();
-            }
+            if (id != command.Id) return BadRequest();
 
             await _mediator.Send(command);
 
