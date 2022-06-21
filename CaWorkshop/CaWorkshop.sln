@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaWorkshop.Application", "C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaWorkshop.Infrastructure", "CaWorkshop.Infrastructure\CaWorkshop.Infrastructure.csproj", "{9D692476-E6D7-48D6-820F-867737447011}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaWorkshop.Application.UnitTests", "CaWorkshop.Application.UnitTests\CaWorkshop.Application.UnitTests.csproj", "{1CA7384C-91D5-453E-A2C1-95099F0E2FD4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{9D692476-E6D7-48D6-820F-867737447011}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D692476-E6D7-48D6-820F-867737447011}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D692476-E6D7-48D6-820F-867737447011}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CA7384C-91D5-453E-A2C1-95099F0E2FD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CA7384C-91D5-453E-A2C1-95099F0E2FD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CA7384C-91D5-453E-A2C1-95099F0E2FD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CA7384C-91D5-453E-A2C1-95099F0E2FD4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
