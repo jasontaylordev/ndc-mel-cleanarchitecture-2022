@@ -37,6 +37,10 @@ builder.Services.AddOpenApiDocument(configure =>
         new AspNetCoreOperationSecurityScopeProcessor("JWT"));
 });
 
+#if DEBUG 
+builder.Services.AddLogging(config => config.AddSeq());
+#endif
+
 var app = builder.Build();
 
 #if DEBUG 
@@ -87,6 +91,6 @@ app.MapControllerRoute(
     pattern: "{controller}/{action=Index}/{id?}");
 app.MapRazorPages();
 
-app.MapFallbackToFile("index.html");;
+app.MapFallbackToFile("index.html"); ;
 
 app.Run();
