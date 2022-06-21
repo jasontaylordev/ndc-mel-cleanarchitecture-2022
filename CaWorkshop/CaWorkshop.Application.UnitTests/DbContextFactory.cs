@@ -1,6 +1,8 @@
 ﻿using System.Data.Common;
 
+using CaWorkshop.Application.Common.Interfaces;
 using CaWorkshop.Infrastructure.Data;
+using CaWorkshop.Infrastructure.Data.Interceptors;
 
 using Duende.IdentityServer.EntityFramework.Options;
 
@@ -26,8 +28,14 @@ public class DbContextFactory : IDisposable
         var operationalStoreOptions = Options.Create(
             new OperationalStoreOptions());
 
+        var currentUserServiceMock = new Mock<ICurrentUserService>();
+        currentUserServiceMock.Setup(m => m.UserId)
+            .Returns(Guid.Empty.ToString());
+
+        var inteceptor = new AuditableEntitySaveChangesInterceptor(currentUserServiceMock.Object);
+
         var context = new ApplicationDbContext(
-            options, operationalStoreOptions);
+            options, operationalStoreOptions, inteceptor);
 
         var initialiser = new ApplicationDbContextInitialiser(context);
 

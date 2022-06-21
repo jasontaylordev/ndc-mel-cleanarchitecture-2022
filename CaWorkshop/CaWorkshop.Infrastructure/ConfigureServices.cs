@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using CaWorkshop.Application.Common.Interfaces;
+using CaWorkshop.Infrastructure.Data.Interceptors;
 
 namespace CaWorkshop.Infrastructure;
 
@@ -23,6 +24,8 @@ public static class ConfigureServices
 
         services.AddScoped<ApplicationDbContextInitialiser>();
 
+        services.AddScoped<AuditableEntitySaveChangesInterceptor>();
+
         services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
             .AddEntityFrameworkStores<ApplicationDbContext>();
 
@@ -31,6 +34,8 @@ public static class ConfigureServices
 
         services.AddAuthentication()
             .AddIdentityServerJwt();
+
+        services.AddScoped<IIdentityService, IdentityService>();
 
         return services;
     }
