@@ -20,8 +20,8 @@ public class WeatherForecastController : ControllerBase
         _logger = logger;
     }
 
-    [HttpGet]
-    public IEnumerable<WeatherForecast> Get()
+    [HttpGet("[action]")]
+    public IEnumerable<WeatherForecast> GetAbc()
     {
         return Enumerable.Range(1, 3).Select(index => new WeatherForecast
         {
