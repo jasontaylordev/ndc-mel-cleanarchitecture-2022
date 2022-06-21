@@ -53,8 +53,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseOpenApi();
-//app.UseSwaggerUi3();
-app.UseReDoc();
+app.UseSwaggerUi3();
+//app.UseReDoc();
 
 app.UseRouting();
 
